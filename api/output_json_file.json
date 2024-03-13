@@ -1,0 +1,302 @@
+[
+  {
+    "Team":"Jordan-Shaw",
+    "Purchasing Date":1602979200000,
+    "License Expiration Date":1723248000000,
+    "Price":"$1457"
+  },
+  {
+    "Team":"Hester-Carter",
+    "Purchasing Date":1623024000000,
+    "License Expiration Date":1718409600000,
+    "Price":"$1031"
+  },
+  {
+    "Team":"Rodriguez and Sons",
+    "Purchasing Date":1670976000000,
+    "License Expiration Date":1727308800000,
+    "Price":"$1784"
+  },
+  {
+    "Team":"Riley-Ford",
+    "Purchasing Date":1628899200000,
+    "License Expiration Date":1714435200000,
+    "Price":"$1484"
+  },
+  {
+    "Team":"Robinson Group",
+    "Purchasing Date":1696550400000,
+    "License Expiration Date":1723248000000,
+    "Price":"$1522"
+  },
+  {
+    "Team":"Evans-Brown",
+    "Purchasing Date":1629763200000,
+    "License Expiration Date":1740096000000,
+    "Price":"$1868"
+  },
+  {
+    "Team":"Hubbard Ltd",
+    "Purchasing Date":1596067200000,
+    "License Expiration Date":1726531200000,
+    "Price":"$1438"
+  },
+  {
+    "Team":"Anderson-Williams",
+    "Purchasing Date":1701475200000,
+    "License Expiration Date":1724112000000,
+    "Price":"$685"
+  },
+  {
+    "Team":"Cox-Kim",
+    "Purchasing Date":1666915200000,
+    "License Expiration Date":1739836800000,
+    "Price":"$1110"
+  },
+  {
+    "Team":"Johnson Group",
+    "Purchasing Date":1594944000000,
+    "License Expiration Date":1731974400000,
+    "Price":"$1945"
+  },
+  {
+    "Team":"Clark, Guerrero and Pruitt",
+    "Purchasing Date":1689724800000,
+    "License Expiration Date":1734652800000,
+    "Price":"$1028"
+  },
+  {
+    "Team":"Watson PLC",
+    "Purchasing Date":1642809600000,
+    "License Expiration Date":1727740800000,
+    "Price":"$1177"
+  },
+  {
+    "Team":"Campbell, Sawyer and White",
+    "Purchasing Date":1692921600000,
+    "License Expiration Date":1736812800000,
+    "Price":"$1842"
+  },
+  {
+    "Team":"Kennedy-Jones",
+    "Purchasing Date":1611360000000,
+    "License Expiration Date":1715990400000,
+    "Price":"$786"
+  },
+  {
+    "Team":"Cooper, Knapp and Wallace",
+    "Purchasing Date":1593648000000,
+    "License Expiration Date":1711065600000,
+    "Price":"$678"
+  },
+  {
+    "Team":"Phillips Inc",
+    "Purchasing Date":1649548800000,
+    "License Expiration Date":1740009600000,
+    "Price":"$1396"
+  },
+  {
+    "Team":"Jackson, Green and Mcdaniel",
+    "Purchasing Date":1618444800000,
+    "License Expiration Date":1724371200000,
+    "Price":"$1730"
+  },
+  {
+    "Team":"Solomon LLC",
+    "Purchasing Date":1671926400000,
+    "License Expiration Date":1723420800000,
+    "Price":"$933"
+  },
+  {
+    "Team":"Kramer Group",
+    "Purchasing Date":1705363200000,
+    "License Expiration Date":1717977600000,
+    "Price":"$1182"
+  },
+  {
+    "Team":"Olson-Jackson",
+    "Purchasing Date":1668211200000,
+    "License Expiration Date":1710460800000,
+    "Price":"$1226"
+  },
+  {
+    "Team":"Calderon LLC",
+    "Purchasing Date":1692316800000,
+    "License Expiration Date":1717632000000,
+    "Price":"$1287"
+  },
+  {
+    "Team":"Todd Group",
+    "Purchasing Date":1673136000000,
+    "License Expiration Date":1728518400000,
+    "Price":"$1453"
+  },
+  {
+    "Team":"Miranda, Pennington and Johnston",
+    "Purchasing Date":1614988800000,
+    "License Expiration Date":1723161600000,
+    "Price":"$1850"
+  },
+  {
+    "Team":"Bird PLC",
+    "Purchasing Date":1652918400000,
+    "License Expiration Date":1734134400000,
+    "Price":"$1075"
+  },
+  {
+    "Team":"Ford, Stewart and Williams",
+    "Purchasing Date":1640736000000,
+    "License Expiration Date":1723852800000,
+    "Price":"$530"
+  },
+  {
+    "Team":"Olsen, Pitts and Kirk",
+    "Purchasing Date":1609459200000,
+    "License Expiration Date":1723766400000,
+    "Price":"$542"
+  },
+  {
+    "Team":"Brown, Arnold and Reid",
+    "Purchasing Date":1612051200000,
+    "License Expiration Date":1712966400000,
+    "Price":"$1910"
+  },
+  {
+    "Team":"Brown, Rogers and Gonzalez",
+    "Purchasing Date":1670716800000,
+    "License Expiration Date":1731369600000,
+    "Price":"$919"
+  },
+  {
+    "Team":"Martin, Williams and Mejia",
+    "Purchasing Date":1660953600000,
+    "License Expiration Date":1719705600000,
+    "Price":"$697"
+  },
+  {
+    "Team":"Lee LLC",
+    "Purchasing Date":1709942400000,
+    "License Expiration Date":1715644800000,
+    "Price":"$1260"
+  },
+  {
+    "Team":"Hill, Rojas and Ware",
+    "Purchasing Date":1695254400000,
+    "License Expiration Date":1712793600000,
+    "Price":"$785"
+  },
+  {
+    "Team":"Johnson-Thomas",
+    "Purchasing Date":1587340800000,
+    "License Expiration Date":1732320000000,
+    "Price":"$1002"
+  },
+  {
+    "Team":"Ward-Miles",
+    "Purchasing Date":1603929600000,
+    "License Expiration Date":1735171200000,
+    "Price":"$1809"
+  },
+  {
+    "Team":"Case PLC",
+    "Purchasing Date":1580860800000,
+    "License Expiration Date":1731024000000,
+    "Price":"$1535"
+  },
+  {
+    "Team":"Carter-Miller",
+    "Purchasing Date":1631145600000,
+    "License Expiration Date":1723507200000,
+    "Price":"$1806"
+  },
+  {
+    "Team":"Edwards Inc",
+    "Purchasing Date":1611100800000,
+    "License Expiration Date":1731628800000,
+    "Price":"$559"
+  },
+  {
+    "Team":"Meyer Inc",
+    "Purchasing Date":1595894400000,
+    "License Expiration Date":1736812800000,
+    "Price":"$1410"
+  },
+  {
+    "Team":"Mckenzie, Brown and Jones",
+    "Purchasing Date":1689120000000,
+    "License Expiration Date":1734825600000,
+    "Price":"$1148"
+  },
+  {
+    "Team":"Merritt, Montes and Scott",
+    "Purchasing Date":1618272000000,
+    "License Expiration Date":1734134400000,
+    "Price":"$1904"
+  },
+  {
+    "Team":"Stokes LLC",
+    "Purchasing Date":1670112000000,
+    "License Expiration Date":1717027200000,
+    "Price":"$554"
+  },
+  {
+    "Team":"Reid, Chambers and Griffin",
+    "Purchasing Date":1659484800000,
+    "License Expiration Date":1718582400000,
+    "Price":"$1637"
+  },
+  {
+    "Team":"Jones, Norris and Schultz",
+    "Purchasing Date":1651795200000,
+    "License Expiration Date":1736121600000,
+    "Price":"$1910"
+  },
+  {
+    "Team":"Anthony-Rose",
+    "Purchasing Date":1618185600000,
+    "License Expiration Date":1719619200000,
+    "Price":"$1789"
+  },
+  {
+    "Team":"Fernandez PLC",
+    "Purchasing Date":1580860800000,
+    "License Expiration Date":1716163200000,
+    "Price":"$716"
+  },
+  {
+    "Team":"Jackson, Cooper and Vargas",
+    "Purchasing Date":1688515200000,
+    "License Expiration Date":1721606400000,
+    "Price":"$1991"
+  },
+  {
+    "Team":"Douglas Inc",
+    "Purchasing Date":1706486400000,
+    "License Expiration Date":1740441600000,
+    "Price":"$1662"
+  },
+  {
+    "Team":"Moreno, Washington and Garza",
+    "Purchasing Date":1625184000000,
+    "License Expiration Date":1715731200000,
+    "Price":"$1100"
+  },
+  {
+    "Team":"Rodriguez, Collins and Jimenez",
+    "Purchasing Date":1698451200000,
+    "License Expiration Date":1732147200000,
+    "Price":"$883"
+  },
+  {
+    "Team":"Bradley-Bender",
+    "Purchasing Date":1578096000000,
+    "License Expiration Date":1727740800000,
+    "Price":"$1129"
+  },
+  {
+    "Team":"Orozco-Vaughn",
+    "Purchasing Date":1590537600000,
+    "License Expiration Date":1716076800000,
+    "Price":"$1800"
+  }
+]
