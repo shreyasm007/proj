@@ -1,0 +1,80 @@
+/* App.css */
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+    background-color: #f4f4f4;
+    margin-top: 70px;
+    padding: 0;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* licensingtable.css */
+
+/* Adjust font for Licensing Information title */
+.licensing-title {
+    font-family: Arial, sans-serif;
+    /* Change the font family */
+    font-size: 25px;
+    /* Adjust the font size if needed */
+    font-weight: bold;
+    /* Optionally, make it bold */
+    text-align: center;
+    /* Center the text */
+}
+
+.expired {
+    color: red;
+    /* Example: Red color for expired licenses */
+    font-weight: bold;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    text-align: left;
+}
+
+tr:nth-child(odd) {
+    background-color: #f2f2f2;
+    /* Light gray background color for odd rows */
+}
+
+tr:nth-child(even) {
+    background-color: #e0e0e0;
+    /* Lighter gray background color for even rows */
+}
+
+tr:hover {
+    background-color: #9c9999;
+    /* Darker gray background color on hover */
+}
+
+.days-remaining {
+    color: #ff4500;
+    /* Orangered color */
+}

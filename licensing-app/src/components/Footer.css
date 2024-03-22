@@ -1,0 +1,21 @@
+/* Footer.css */
+
+.footer {
+    background-color: darkblue;
+    color: white;
+
+    text-align: center;
+    position: fixed;
+    padding: 1px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Set a high z-index value to ensure it's above other content */
+  }
+  
+  .footer-content {
+    font-size: 15px; /* Adjust the font size of the content */
+    padding: 0;
+    margin: 0;
+  }
+  

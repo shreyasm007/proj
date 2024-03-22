@@ -1,0 +1,12 @@
+/* LicenseGraph.css */
+
+.chart-container {
+    height: 400px;
+    width: 800px;
+    margin-top: 20px;
+  }
+  
+  .graph-title {
+    text-align: center;
+  }
+  

@@ -1,26 +1,22 @@
-// LicensingTable.js
+//LicensingTable.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import PieChart from './PieChart';
+import './LicensingTable.css';
 
-// Define formatDateString function
 const formatDateString = (dateString) => {
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   return new Date(dateString).toLocaleDateString(undefined, options);
 };
 
-// Define calculateRemainingTime function
 const calculateRemainingTime = (expirationDate) => {
   const expirationTime = new Date(expirationDate).getTime();
   const currentTime = new Date().getTime();
   const remainingTime = expirationTime - currentTime;
 
-  // If license has expired
   if (remainingTime <= 0) {
     return "Expired";
   }
 
-  // Convert remaining time to days
   const remainingDays = Math.ceil(remainingTime / (1000 * 60 * 60 * 24));
 
   return remainingDays + " days";
@@ -33,7 +29,12 @@ const LicensingTable = () => {
   useEffect(() => {
     axios.get('http://localhost:3001/licensing-data')
       .then(response => {
-        setLicensingData(response.data);
+        const sortedData = response.data.sort((a, b) => {
+          const remainingTimeA = new Date(a['License Expiration Date']).getTime() - new Date().getTime();
+          const remainingTimeB = new Date(b['License Expiration Date']).getTime() - new Date().getTime();
+          return remainingTimeA - remainingTimeB;
+        });
+        setLicensingData(sortedData);
         setLoading(false);
       })
       .catch(error => console.error('Error fetching data:', error));
@@ -50,7 +51,8 @@ const LicensingTable = () => {
 
   return (
     <div className="container">
-      <h2>Licensing Information</h2>
+      <h2 className="licensing-title">Licensing Information of Teams</h2>
+ 
       <table>
         <thead>
           <tr>
@@ -75,11 +77,6 @@ const LicensingTable = () => {
       </table>
       <div style={{ color: 'green' }}>
         <h1>Total Cost: ${totalCost.toFixed(2)}</h1>
-      </div>
-      <div style={{ marginTop: '20px' }}>
-        <h2>Company Cost Overview</h2>
-        {/* Render PieChart component */}
-        <PieChart licensingData={licensingData} />
       </div>
     </div>
   );
