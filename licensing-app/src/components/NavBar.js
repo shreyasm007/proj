@@ -1,9 +1,9 @@
 // Navbar.js
-
 import React from 'react';
 import './Navbar.css'; // Import CSS file for navbar styling
 import logo from "./logo.jpg";
 import logo2 from "./logo2.png";
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const Navbar = () => {
   return (
@@ -20,9 +20,10 @@ const Navbar = () => {
       <div className="right-section">
         <div className='nav-links li'>
             <ul className="nav-links">
-              <li><a href="/">Home</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/contact">Contact</a></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/Login">Log In</Link></li>
+              <li><Link to="/Register">Register</Link></li>
+              <li><Link to="/upload">Upload Excel File</Link></li> {/* Add Link to Upload Excel File page */}
             </ul>
         </div>
         

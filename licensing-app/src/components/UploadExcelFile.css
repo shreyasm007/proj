@@ -1,0 +1,53 @@
+/* UploadExcelFile.css */
+
+.upload-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.upload-input {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px dashed #007bff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.upload-input:hover {
+  border-color: #0056b3;
+}
+
+.upload-btn {
+  margin: 10px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-btn:hover {
+  background-color: #0056b3;
+}
+
+.loading-spinner {
+  margin: 10px auto;
+  color: #007bff;
+}
+
+.upload-status {
+  margin: 10px auto;
+  font-size: 18px;
+  color: green;
+}
+
+.selected-file {
+  margin: 10px auto;
+  font-size: 16px;
+}

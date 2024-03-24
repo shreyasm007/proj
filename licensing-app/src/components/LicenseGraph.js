@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
-import Chart from 'chart.js/auto'; // Import Chart from Chart.js library
+import Chart from 'chart.js/auto';
 
 const LicenseGraph = () => {
   const [licensingData, setLicensingData] = useState([]);
@@ -10,7 +10,6 @@ const LicenseGraph = () => {
   useEffect(() => {
     axios.get('http://localhost:3001/licensing-data')
       .then(response => {
-        console.log('Response data:', response.data);
         const sortedData = response.data.sort((a, b) => {
           const remainingTimeA = new Date(a['License Expiration Date']).getTime() - new Date().getTime();
           const remainingTimeB = new Date(b['License Expiration Date']).getTime() - new Date().getTime();
@@ -33,10 +32,16 @@ const LicenseGraph = () => {
               label: 'Remaining Time',
               data: licensingData.map(entry => {
                 const remainingTime = new Date(entry['License Expiration Date']).getTime() - new Date().getTime();
-                return Math.ceil(remainingTime / (1000 * 60 * 60 * 24));
+                return Math.max(remainingTime / (1000 * 60 * 60 * 24 * 30), 0); // Convert milliseconds to months, ensure non-negative value
               }),
-              backgroundColor: 'rgba(54, 162, 235, 0.6)',
-              borderColor: 'rgba(54, 162, 235, 1)',
+              backgroundColor: licensingData.map(entry => {
+                const remainingTime = new Date(entry['License Expiration Date']).getTime() - new Date().getTime();
+                return remainingTime / (1000 * 60 * 60 * 24 * 30) < 3 ? 'rgba(255, 0, 0, 0.6)' : 'rgba(54, 162, 235, 0.6)';
+              }),
+              borderColor: licensingData.map(entry => {
+                const remainingTime = new Date(entry['License Expiration Date']).getTime() - new Date().getTime();
+                return remainingTime / (1000 * 60 * 60 * 24 * 30) < 3 ? 'rgba(255, 0, 0, 1)' : 'rgba(54, 162, 235, 1)';
+              }),
               borderWidth: 1,
             },
           ],
@@ -47,10 +52,28 @@ const LicenseGraph = () => {
               beginAtZero: true,
               title: {
                 display: true,
-                text: 'Remaining Time (days)',
+                text: 'Remaining Time (months)',
               },
+              ticks: {
+                callback: function(value, index, values) {
+                  return `${Math.floor(value)} months`; // Show remaining time in months without decimals
+                }
+              }
             },
           },
+          plugins: {
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  const dataIndex = context.dataIndex;
+                  const entry = licensingData[dataIndex];
+                  const remainingTime = new Date(entry['License Expiration Date']).getTime() - new Date().getTime();
+                  const remainingMonths = Math.max(remainingTime / (1000 * 60 * 60 * 24 * 30), 0); // Convert milliseconds to months, ensure non-negative value
+                  return remainingMonths < 0 ? 'Expired' : `${Math.ceil(remainingMonths)} months`;
+                }
+              }
+            }
+          }
         },
       });
       return chartInstance;
@@ -64,14 +87,31 @@ const LicenseGraph = () => {
     }
   }, [loading, licensingData]);
 
+  const [chartDimensions, setChartDimensions] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (chartRef.current) {
+        const parentWidth = chartRef.current.parentElement.clientWidth;
+        const parentHeight = chartRef.current.parentElement.clientHeight;
+        setChartDimensions({ width: parentWidth, height: parentHeight });
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <div className="license-graph">
+    <div className="license-graph" style={{ width: '100%', height: '500px' }}>
       <h2>Licensing Data Graph</h2>
-      <div>
+      <div style={{ width: '100%', height: '100%' }}>
         {loading ? (
           <div>Loading...</div>
         ) : (
-          <canvas ref={chartRef}></canvas>
+          <canvas ref={chartRef} width={chartDimensions.width} height={chartDimensions.height}></canvas>
         )}
       </div>
     </div>
