@@ -5,7 +5,9 @@ import Chart from 'chart.js/auto';
 const LicenseGraph = () => {
   const [licensingData, setLicensingData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const chartRef = useRef(null);
+  const [chartDimensions, setChartDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
     axios.get('http://localhost:3001/licensing-data')
@@ -18,7 +20,26 @@ const LicenseGraph = () => {
         setLicensingData(sortedData);
         setLoading(false);
       })
-      .catch(error => console.error('Error fetching data:', error));
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        setError('An error occurred while fetching data. Please try again later.');
+        setLoading(false);
+      });
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (chartRef.current) {
+        const parentWidth = chartRef.current.parentElement.clientWidth;
+        const parentHeight = chartRef.current.parentElement.clientHeight;
+        setChartDimensions({ width: parentWidth, height: parentHeight });
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   useEffect(() => {
@@ -87,32 +108,23 @@ const LicenseGraph = () => {
     }
   }, [loading, licensingData]);
 
-  const [chartDimensions, setChartDimensions] = useState({ width: 0, height: 0 });
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (chartRef.current) {
-        const parentWidth = chartRef.current.parentElement.clientWidth;
-        const parentHeight = chartRef.current.parentElement.clientHeight;
-        setChartDimensions({ width: parentWidth, height: parentHeight });
-      }
-    };
+  if (error) {
+    return <div>{error}</div>;
+  }
 
-    window.addEventListener('resize', handleResize);
-    handleResize();
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  if (licensingData.length === 0) {
+    return <div className="no-data-message">No data available for displaying. Please upload data first.</div>;
+  }
 
   return (
     <div className="license-graph" style={{ width: '100%', height: '500px' }}>
       <h2>Licensing Data Graph</h2>
       <div style={{ width: '100%', height: '100%' }}>
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          <canvas ref={chartRef} width={chartDimensions.width} height={chartDimensions.height}></canvas>
-        )}
+        <canvas ref={chartRef} width={chartDimensions.width} height={chartDimensions.height}></canvas>
       </div>
     </div>
   );

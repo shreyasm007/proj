@@ -40,12 +40,27 @@ const UploadExcelFile = () => {
     }
   };
 
+  const handleDeleteData = async () => {
+    try {
+      const response = await axios.delete('http://localhost:3001/clear-data');
+      console.log('Data cleared successfully:', response.data);
+      setUploadStatus('Data cleared successfully.');
+    } catch (error) {
+      console.error('Error clearing data:', error);
+      setUploadStatus('Error clearing data. Please try again.');
+    }
+  };
+  
+
   return (
     <div className="upload-container">
       <h2>Upload Excel File</h2>
       <input type="file" onChange={handleFileChange} className="upload-input" />
       <button onClick={handleFileUpload} className="upload-btn" disabled={uploading}>
         Upload
+      </button>
+      <button onClick={handleDeleteData} className="delete-btn">
+        Delete All Data
       </button>
       {uploading && <div className="loading-spinner">Uploading...</div>}
       {uploadStatus && <p className="upload-status">{uploadStatus}</p>}

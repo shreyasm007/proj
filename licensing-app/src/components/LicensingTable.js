@@ -1,4 +1,3 @@
-//LicensingTable.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './LicensingTable.css';
@@ -40,8 +39,33 @@ const LicensingTable = () => {
       .catch(error => console.error('Error fetching data:', error));
   }, []);
 
+  const handleRemoveDuplicates = () => {
+    axios.delete('http://localhost:3001/remove-duplicates')
+      .then(response => {
+        if (response.data.duplicatesRemoved) {
+          console.log(response.data);
+          setLicensingData([]); // Clear licensingData after removing duplicates
+          alert('Duplicates removed successfully.');
+        } else {
+          alert('No duplicates found.');
+        }
+      })
+      .catch(error => {
+        console.error('Error removing duplicates:', error);
+        alert('Error removing duplicates. Please try again.');
+      });
+  };
+  
+
   if (loading) {
     return <div>Loading...</div>;
+  }
+
+  if (licensingData.length === 0) {
+    return <div className="container">
+      <h2 className="licensing-title">Licensing Information of Teams</h2>
+      <p className="no-data-message">No data available for displaying. Please upload data first</p>
+    </div>;
   }
 
   const totalCost = licensingData.reduce((acc, entry) => {
@@ -53,6 +77,8 @@ const LicensingTable = () => {
     <div className="container">
       <h2 className="licensing-title">Licensing Information of Teams</h2>
  
+      <button onClick={handleRemoveDuplicates} className="remove-duplicates-btn">Remove Duplicates</button>
+
       <table>
         <thead>
           <tr>
@@ -64,8 +90,8 @@ const LicensingTable = () => {
           </tr>
         </thead>
         <tbody>
-          {licensingData.map(entry => (
-            <tr key={entry.Team}>
+          {licensingData.map((entry, index) => (
+            <tr key={index}>
               <td>{entry.Team}</td>
               <td>{formatDateString(entry['Purchasing Date'])}</td>
               <td>{formatDateString(entry['License Expiration Date'])}</td>
