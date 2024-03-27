@@ -3,3 +3,4 @@
 ./licensing-app/node_modules/
 /.pnp
 .pnp.js
+.env

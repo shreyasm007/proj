@@ -1,5 +1,3 @@
-// UploadExcelFile.js
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import './UploadExcelFile.css'; // Import CSS file for styling
