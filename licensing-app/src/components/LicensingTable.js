@@ -37,25 +37,7 @@ const LicensingTable = () => {
         setLoading(false);
       })
       .catch(error => console.error('Error fetching data:', error));
-  }, []);
-
-  const handleRemoveDuplicates = () => {
-    axios.delete('http://localhost:3001/remove-duplicates')
-      .then(response => {
-        if (response.data.duplicatesRemoved) {
-          console.log(response.data);
-          setLicensingData([]); // Clear licensingData after removing duplicates
-          alert('Duplicates removed successfully.');
-        } else {
-          alert('No duplicates found.');
-        }
-      })
-      .catch(error => {
-        console.error('Error removing duplicates:', error);
-        alert('Error removing duplicates. Please try again.');
-      });
-  };
-  
+  }, []);  
 
   if (loading) {
     return <div>Loading...</div>;
@@ -76,8 +58,6 @@ const LicensingTable = () => {
   return (
     <div className="container">
       <h2 className="licensing-title">Licensing Information of Teams</h2>
- 
-      <button onClick={handleRemoveDuplicates} className="remove-duplicates-btn">Remove Duplicates</button>
 
       <table>
         <thead>

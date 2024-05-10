@@ -71,41 +71,6 @@ app.delete('/clear-data', async (req, res) => {
     }
 });
 
-// Handle DELETE request to remove duplicates from MongoDB collection
-app.delete('/remove-duplicates', async (req, res) => {
-  try {
-    // Connect to MongoDB
-    const db = await connectToMongoDB();
-    
-    // Find and remove duplicates
-    const result = await db.collection('excel_data').aggregate([
-      { $group: { _id: { 
-          Team: "$Team",
-          'Purchasing Date': "$Purchasing Date",
-          'License Expiration Date': "$License Expiration Date",
-          Price: "$Price"
-        }, 
-        uniqueIds: { $addToSet: "$_id" }, 
-        count: { $sum: 1 } 
-      } },
-      { $match: { count: { $gt: 1 } } }
-    ]).toArray();
-
-    if (result.length === 0) {
-      // No duplicates found
-      res.status(200).json({ duplicatesRemoved: false });
-    } else {
-      // Remove duplicates
-      const uniqueIds = result.map(item => item.uniqueIds[0]);
-      await db.collection('excel_data').deleteMany({ _id: { $nin: uniqueIds } });
-      res.status(200).json({ duplicatesRemoved: true });
-    }
-  } catch (error) {
-    console.error("Error removing duplicates from MongoDB:", error);
-    res.status(500).json({ error: "An error occurred while removing duplicates." });
-  }
-});
-
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
